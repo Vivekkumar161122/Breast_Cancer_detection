@@ -1,0 +1,35 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+# If you want to keep your notebooks clean of output data:
+# .empty_notebook
+
+# --- Data & Large Files ---
+# It is best practice not to track large .csv files if they are >100MB
+# data.csv 
+*.log
+*.sqlite
+*.gz
+
+# --- IDEs ---
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# --- OS generated files ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini

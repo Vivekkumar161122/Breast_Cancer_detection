@@ -1,0 +1,39 @@
+# Model Documentation: Breast Cancer Classifier
+
+This directory contains the logic for the classification model used to detect Malignant vs. Benign tumors.
+
+## 🤖 Model Choice: Logistic Regression
+The project utilizes **Logistic Regression** (via `scikit-learn`) as the primary classification algorithm. 
+
+**Why Logistic Regression?**
+- **Binary Classification:** It is highly effective for problems with two outcomes (Malignant or Benign).
+- **Probability Scores:** It provides a probability of the classification, which is crucial in medical diagnostics.
+- **Interpretability:** The model coefficients can be used to understand which features (like `radius_mean` or `concavity_mean`) contribute most to a cancer diagnosis.
+
+
+
+## 🛠️ Training Process
+1. **Data Splitting**: The dataset was split into training and testing sets (typically 80/20 or 70/30) using `train_test_split`.
+2. **Feature Scaling**: (Optional but recommended) Standardizing features to ensure the model converges faster.
+3. **Hyperparameter Tuning**: Default parameters were used for the baseline, with potential for regularization (L1/L2) to prevent overfitting.
+
+## 📊 Performance Metrics
+The model was evaluated based on:
+- **Accuracy Score**: The percentage of total correct predictions.
+- **Confusion Matrix**: Used to track False Positives and False Negatives (critical in healthcare).
+- **Precision & Recall**: Ensuring that we minimize the number of missed malignant cases (Recall).
+
+
+
+## 🧪 Inference (Prediction)
+To make a prediction, the input data must be a 1D array of 30 feature values. The model uses the following logic to process new data:
+
+```python
+# Convert input to numpy array
+input_data_as_numpy_array = np.asarray(input_data)
+
+# Reshape for a single instance prediction
+input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+
+# Generate prediction
+prediction = model.predict(input_data_reshaped)
